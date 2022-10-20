@@ -1,7 +1,7 @@
 import { Flex, Stack, Tag, Button } from "@chakra-ui/react";
 import { AtSignIcon } from "@chakra-ui/icons";
 
-const ArticleButtons = () => {
+const ArticleButtons = ({ article }) => {
   return (
     <>
       <Button size={"xs"}>Edit</Button>

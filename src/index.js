@@ -18,6 +18,9 @@ const renderApp = () => {
 (async () => {
   const { setupWorker } = await import("msw");
   const { handlers } = await import("./mockApi");
-  await setupWorker(...handlers).start();
+  await setupWorker(...handlers).start({
+    quiet: true,
+    onUnhandledRequest: "bypass",
+  });
   renderApp();
 })();

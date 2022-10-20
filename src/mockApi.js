@@ -39,8 +39,8 @@ const articlesMock = [
     name: "article 1",
     isPublished: false,
     createdBy: {
-      id: 1,
-      name: "user-1",
+      id: 2,
+      name: "user-editor-1",
     },
     __typename: "Article",
   },
@@ -49,8 +49,8 @@ const articlesMock = [
     name: "article 2",
     isPublished: true,
     createdBy: {
-      id: 1,
-      name: "user-1",
+      id: 2,
+      name: "user-editor-1",
     },
     __typename: "Article",
   },
@@ -59,8 +59,8 @@ const articlesMock = [
     name: "article 3",
     isPublished: false,
     createdBy: {
-      id: 2,
-      name: "user-2",
+      id: 3,
+      name: "user-editor-2",
     },
     __typename: "Article",
   },
@@ -69,8 +69,8 @@ const articlesMock = [
     name: "article 4",
     isPublished: true,
     createdBy: {
-      id: 2,
-      name: "user-1",
+      id: 3,
+      name: "user-editor-2",
     },
     __typename: "Article",
   },
