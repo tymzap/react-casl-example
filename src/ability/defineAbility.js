@@ -9,6 +9,7 @@ export const defineAbility = (user) => {
   }
 
   if (user.roles.includes("EDITOR")) {
+    can("create", "Article");
     can("read", "Article");
     can("edit", "Article", {
       "createdBy.id": {
