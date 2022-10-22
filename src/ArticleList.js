@@ -1,19 +1,25 @@
-import { Container, Flex, Stack, Button, Box } from "@chakra-ui/react";
+import { Container, Flex, Stack, Button, Box, Text } from "@chakra-ui/react";
 import { useEffect, useState, useContext } from "react";
 
 import Article from "./Article";
 import { UserContext } from "./User.context";
+import { useAbility } from "./ability/useAbility";
+import Can from "./ability/Can";
 
 const ArticleListButtons = () => {
   return (
     <>
-      <Button>Create</Button>
+      <Can I={"create"} an={"Article"}>
+        <Button>Create</Button>
+      </Can>
     </>
   );
 };
 
 const ArticleList = () => {
   const { user, logOut } = useContext(UserContext);
+
+  const ability = useAbility();
 
   const [articles, setArticles] = useState([]);
   useEffect(() => {
@@ -58,9 +64,13 @@ const ArticleList = () => {
             <ArticleListButtons />
           </Box>
           <Stack spacing={5}>
-            {articles.map((article) => (
-              <Article article={article} key={article.id} />
-            ))}
+            {ability.cannot("read", "Article") ? (
+              <Text>You are not allowed to view articles.</Text>
+            ) : (
+              articles.map((article) => (
+                <Article article={article} key={article.id} />
+              ))
+            )}
           </Stack>
         </Stack>
       </Container>
